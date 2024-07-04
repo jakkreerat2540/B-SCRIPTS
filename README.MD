@@ -5,7 +5,6 @@ curl -fsSL https://raw.githubusercontent.com/jakkreerat2540/B-SCRIPTS/main/zsh.s
 ```bash {"id":"01J1Z6YNAP8HJS5XPX0KDFHS3P"}
 curl -fsSL https://raw.githubusercontent.com/jakkreerat2540/B-SCRIPTS/main/generate_certificate.sh -o generate_certificate.sh && chmod +x generate_certificate.sh && ./generate_certificate.sh
 ```
-```
 
 Run the script with the necessary options. For example:
 
