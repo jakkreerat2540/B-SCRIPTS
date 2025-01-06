@@ -46,11 +46,24 @@ function get_distribution() {
 # Docker Functions
 ###############################################################################
 
+#function download_docker() {
+#    info "Downloading Docker installation script..."
+#    if curl -fsSL https://get.docker.com -o get-docker.sh; then
+#        chmod +x get-docker.sh
+#        success "Docker installation script downloaded successfully."
+#    else
+#        error "Failed to download the Docker installation script. Please check your network connection or proxy settings."
+#        exit 1
+#    fi
+#}
+
 function download_docker() {
     info "Downloading Docker installation script..."
     if curl -fsSL https://get.docker.com -o get-docker.sh; then
         chmod +x get-docker.sh
-        success "Docker installation script downloaded successfully."
+        # Add AlmaLinux as recognized distribution
+        sed -i 's/elif \[ "\$lsb_dist" = "centos" \]/elif [ "$lsb_dist" = "centos" ] || [ "$lsb_dist" = "almalinux" ]/g' get-docker.sh
+        success "Docker installation script downloaded and modified successfully."
     else
         error "Failed to download the Docker installation script. Please check your network connection or proxy settings."
         exit 1
